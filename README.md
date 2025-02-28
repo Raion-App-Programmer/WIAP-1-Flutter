@@ -1,4 +1,4 @@
-# isj2_android_flutter
+# Workshop Internship App Programmer 1 - Track Flutter
 
 A new Flutter project.
 
