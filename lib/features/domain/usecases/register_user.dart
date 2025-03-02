@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:isj2_android_flutter/core/usecases/usecases.dart';
 import 'package:isj2_android_flutter/features/domain/entities/user.dart';
 import 'package:isj2_android_flutter/features/domain/repositories/auth_repository.dart';

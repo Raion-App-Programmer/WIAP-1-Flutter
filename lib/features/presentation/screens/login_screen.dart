@@ -47,7 +47,8 @@ class _LoginScreenState extends State<LoginScreen> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const RegisterScreen()),
+                  MaterialPageRoute(
+                      builder: (context) => const RegisterScreen()),
                 );
               },
               child: const Text("Don't have an account? Register"),
@@ -67,19 +68,17 @@ class _LoginScreenState extends State<LoginScreen> {
     final password = _passwordController.text;
 
     try {
-      await Provider.of<AuthProvider>(context, listen: false).login(email, password, context);
+      await Provider.of<AuthProvider>(context, listen: false)
+          .login(email, password, context);
 
       final userId = firebase_auth.FirebaseAuth.instance.currentUser!.uid;
-      if (userId != null) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (_) => const NotesScreen()),
-        );
-      } else {
-        throw Exception("User ID not found");
-      }
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => const NotesScreen()),
+      );
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(e.toString())));
     } finally {
       setState(() {
         _isLoading = false;

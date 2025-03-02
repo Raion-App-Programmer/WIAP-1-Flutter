@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:isj2_android_flutter/features/domain/usecases/login_user.dart';
 import 'package:isj2_android_flutter/features/domain/usecases/register_user.dart';
-import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:isj2_android_flutter/features/presentation/screens/notes_screen.dart';
 
 class AuthProvider with ChangeNotifier {
@@ -18,7 +17,8 @@ class AuthProvider with ChangeNotifier {
   bool get isLoading => _isLoading;
   String? get errorMessage => _errorMessage;
 
-  Future<void> login(String email, String password, BuildContext context) async {
+  Future<void> login(
+      String email, String password, BuildContext context) async {
     _setLoading(true);
     _clearError();
     try {

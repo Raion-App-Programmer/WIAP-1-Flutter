@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:isj2_android_flutter/features/presentation/provider/note_provider.dart';
 import 'package:isj2_android_flutter/features/presentation/screens/add_note_screen.dart';
 import 'package:provider/provider.dart';
-import '../provider/auth_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 
 class NotesScreen extends StatelessWidget {
@@ -12,11 +11,13 @@ class NotesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final notesProvider = Provider.of<NotesProvider>(context);
 
-    notesProvider.loadNotes(firebase_auth.FirebaseAuth.instance.currentUser!.uid);
+    notesProvider
+        .loadNotes(firebase_auth.FirebaseAuth.instance.currentUser!.uid);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('${firebase_auth.FirebaseAuth.instance.currentUser?.email}'),
+        title:
+            Text('${firebase_auth.FirebaseAuth.instance.currentUser?.email}'),
         actions: [
           IconButton(
             icon: const Icon(Icons.exit_to_app),
@@ -60,7 +61,10 @@ class NotesScreen extends StatelessWidget {
                     IconButton(
                       icon: const Icon(Icons.delete),
                       onPressed: () async {
-                        await notesProvider.removeNote(note.id, firebase_auth.FirebaseAuth.instance.currentUser!.uid);
+                        await notesProvider.removeNote(
+                            note.id,
+                            firebase_auth
+                                .FirebaseAuth.instance.currentUser!.uid);
                       },
                     ),
                   ],

@@ -83,4 +83,5 @@ class DefaultFirebaseOptions {
     authDomain: 'isj2-android.firebaseapp.com',
     storageBucket: 'isj2-android.firebasestorage.app',
   );
+
 }
